@@ -1,0 +1,12 @@
+lab_subnet: "192.168.56.0/24"
+
+attacker_ip: "192.168.56.128"
+victim_ip: "192.168.56.129"
+normal_client_ip: "192.168.56.130"
+nids_host_ip: "192.168.56.1"
+
+limits:
+    max_duration: 60
+    max_rate: 20
+    max_ssh_attempts: 10
+    max_tcp_connections: 100
