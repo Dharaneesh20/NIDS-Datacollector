@@ -139,7 +139,7 @@ def main():
 
     display_start(exp_id, args.mode, type_label, source_ip, args.target)
 
-    start_time = datetime.now(datetime.UTC).isoformat() + "Z"
+    start_time = datetime.utcnow().isoformat() + "Z"
 
     if args.dry_run:
         print(f"[DRY-RUN] Would execute {args.mode} mode with type {type_label} against {args.target} for {args.duration}s.")
@@ -173,7 +173,7 @@ def main():
                 print(f"ERROR: Unknown attack type '{args.type}'")
                 sys.exit(1)
 
-    end_time = datetime.now(datetime.UTC).isoformat() + "Z"
+    end_time = datetime.utcnow().isoformat() + "Z"
     
     exp_data = {
         "experiment_id": exp_id,
