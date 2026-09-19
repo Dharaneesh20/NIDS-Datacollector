@@ -38,10 +38,14 @@ else
 fi
 
 echo ""
+read -p "Enter Duration in seconds [Default: 10]: " DURATION
+DURATION=${DURATION:-10}
+
+echo ""
 read -p "Do you want to perform a DRY RUN (no traffic generated)? (y/n) [Default: n]: " DRY_RUN_OPT
 DRY_RUN_OPT=${DRY_RUN_OPT:-n}
 
-CMD="python3 lab_traffic_generator.py --target $TARGET --mode attack --type $ATTACK_TYPE"
+CMD="python3 lab_traffic_generator.py --target $TARGET --mode attack --type $ATTACK_TYPE --duration $DURATION"
 
 if [[ "$DRY_RUN_OPT" =~ ^[Yy]$ ]]; then
     CMD="$CMD --dry-run"

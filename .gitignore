@@ -1,0 +1,33 @@
+# Virtual Environments
+venv/
+.venv/
+env/
+.env/
+
+# Node.js
+node_modules/
+
+# Datasets and Logs
+*.csv
+*.jsonl
+
+# Packet Captures
+*.pcap
+*.pcapng
+
+# Databases
+*.db
+*.sqlite3
+*.sqlite
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# IDEs and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

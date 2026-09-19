@@ -1,0 +1,23 @@
+network:
+  interface: "vmnet1"
+  subnet: "192.168.56.0/24"
+  host_ip: "192.168.56.1"
+
+machines:
+  kali:
+    ip: "192.168.56.128"
+  metasploitable:
+    ip: "192.168.56.129"
+  mint:
+    ip: "192.168.56.130"
+
+capture:
+  packet_timeout: 1
+  flow_timeout: 15
+
+storage:
+  raw_pcap_directory: "data/raw/pcap"
+  flow_directory: "data/processed/flows"
+  dataset_directory: "data/processed/datasets"
+  experiment_directory: "data/experiments"
+  database_path: "data/nids.db"
