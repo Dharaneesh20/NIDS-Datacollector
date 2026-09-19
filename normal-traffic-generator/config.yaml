@@ -1,0 +1,26 @@
+lab_subnet: "192.168.56.0/24"
+default_target: "192.168.56.129"
+
+services:
+  http:
+    enabled: true
+    port: 80
+  https:
+    enabled: false
+    port: 443
+  ssh:
+    enabled: true
+    port: 22
+  ftp:
+    enabled: true
+    port: 21
+  telnet:
+    enabled: true
+    port: 23
+  dns:
+    enabled: false
+    port: 53
+
+traffic:
+  min_delay: 2
+  max_delay: 10
