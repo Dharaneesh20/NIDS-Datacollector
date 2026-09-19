@@ -7,8 +7,10 @@ import subprocess
 from tqdm import tqdm
 
 def run(target: str, duration: int, config: dict):
-    max_duration = config.get("limits", {}).get("max_duration", 60)
-    duration = min(duration, max_duration)
+    
+    # We will loop and pick random ports/actions
+    
+    print(f"Generating Normal traffic to {target} for {duration} seconds...")
     
     activities = ['dns', 'http', 'icmp', 'tcp', 'ssh']
     
