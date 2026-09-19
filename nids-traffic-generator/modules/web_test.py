@@ -1,8 +1,7 @@
 import time
 import sys
-from tqdm import tqdm
 
-def run(target: str, config: dict):
+def run(target: str, duration: int, config: dict):
     try:
         import requests
     except ImportError:
@@ -19,12 +18,17 @@ def run(target: str, config: dict):
         "/.git/config"
     ]
     
-    print(f"Running Web security test against {target} ({len(payloads)} requests)")
+    print(f"Running Web security test against {target} for {duration} seconds...")
     
-    for path in tqdm(payloads, desc="Web Test"):
-        url = f"http://{target}{path}"
-        try:
-            requests.get(url, timeout=2, headers={"User-Agent": "Lab-Web-Tester/1.0"})
-        except requests.RequestException:
-            pass
-        time.sleep(1)
+    start_time = time.time()
+    
+    while time.time() - start_time < duration:
+        for path in payloads:
+            if time.time() - start_time >= duration:
+                break
+            url = f"http://{target}{path}"
+            try:
+                requests.get(url, timeout=2, headers={"User-Agent": "Lab-Web-Tester/1.0"})
+            except requests.RequestException:
+                pass
+            time.sleep(1)

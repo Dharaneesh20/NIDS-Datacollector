@@ -153,10 +153,10 @@ def main():
         elif args.mode == "attack":
             if args.type == "port_scan":
                 import modules.port_scan as port_scan_mod
-                port_scan_mod.run(args.target, config)
+                port_scan_mod.run(args.target, args.duration, config)
             elif args.type == "service_enumeration":
                 import modules.service_enum as service_enum_mod
-                service_enum_mod.run(args.target, config)
+                service_enum_mod.run(args.target, args.duration, config)
             elif args.type == "icmp_burst":
                 import modules.icmp_burst as icmp_burst_mod
                 icmp_burst_mod.run(args.target, args.duration, args.rate, config)
@@ -165,10 +165,10 @@ def main():
                 tcp_burst_mod.run(args.target, args.duration, args.rate, config)
             elif args.type == "ssh_auth_test":
                 import modules.ssh_test as ssh_test_mod
-                ssh_test_mod.run(args.target, config)
+                ssh_test_mod.run(args.target, args.duration, config)
             elif args.type == "web_test":
                 import modules.web_test as web_test_mod
-                web_test_mod.run(args.target, config)
+                web_test_mod.run(args.target, args.duration, config)
             else:
                 print(f"ERROR: Unknown attack type '{args.type}'")
                 sys.exit(1)
